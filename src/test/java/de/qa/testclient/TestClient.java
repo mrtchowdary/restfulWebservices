@@ -18,10 +18,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import de.qa.base.Base;
 import de.qa.client.Client;
 import de.qa.data.Users;
 import de.qa.util.ReadJSON;
-import de.restapi.base.Base;
 
 public class TestClient extends Base{
 	

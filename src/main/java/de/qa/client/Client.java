@@ -13,7 +13,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-import de.restapi.base.Base;
+import de.qa.base.Base;
 
 public class Client extends Base{
 
@@ -49,33 +49,31 @@ public class Client extends Base{
 	}
 	
 	//3. POST Method:
-			public CloseableHttpResponse post(String url, String entityString, HashMap<String, String> headerMap){
-				CloseableHttpClient httpClient = HttpClients.createDefault();
-				HttpPost httppost = new HttpPost(url); //http post request
-				try {
-					httppost.setEntity(new StringEntity(entityString));
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} //for payload
-				
-				//for headers:
-				for(Map.Entry<String,String> entry : headerMap.entrySet()){
-					httppost.addHeader(entry.getKey(), entry.getValue());
-				}
-				
-				CloseableHttpResponse response = null;
-				try {
-					response = httpClient.execute(httppost);
-				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return response;
-				
-				
-			}
+	public CloseableHttpResponse post(String url, String entityString, HashMap<String, String> headerMap){
+		CloseableHttpClient httpClient = HttpClients.createDefault();
+		HttpPost httppost = new HttpPost(url); //http post request
+		try {
+			httppost.setEntity(new StringEntity(entityString));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //for payload
+		
+		//for headers:
+		for(Map.Entry<String,String> entry : headerMap.entrySet()){
+			httppost.addHeader(entry.getKey(), entry.getValue());
+		}
+		
+		CloseableHttpResponse response = null;
+		try {
+			response = httpClient.execute(httppost);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return response;
+	}
 }
